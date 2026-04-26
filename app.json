@@ -41,9 +41,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      "./plugins/withScreenSecurity"
-    ],
     "extra": {
       "eas": {
         "projectId": "682efe7f-e262-4229-b6f7-9b891cbf2465"
