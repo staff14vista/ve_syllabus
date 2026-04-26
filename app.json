@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "VESylApp",
-    "slug": "VESylApp",
+    "name": "VE Syllabus",
+    "slug": "vista-educare-syllabus",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -12,18 +12,43 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "updates": {
+      "enabled": true,
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/682efe7f-e262-4229-b6f7-9b891cbf2465"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vesyllabus.app",
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.vesyllabus.app",
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "./plugins/withScreenSecurity"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "682efe7f-e262-4229-b6f7-9b891cbf2465"
+      }
+    },
+    "owner": "staff14vista"
   }
 }
