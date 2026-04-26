@@ -1,21 +1,15 @@
 # VE Syllabus App
 
-This is a React Native Expo application for VE Syllabus. It serves as a secure wrapper around the web application hosted at [vesyllabus.fwh.is](https://vesyllabus.fwh.is).
+A React Native mobile application built with Expo for VE Syllabus.
 
 ## Features
 
-- **Custom Splash Screen**: Displays an animated VE logo with a fade-out transition.
-- **Web App Wrapper**: Loads the main web application seamlessly using `react-native-webview`.
-- **Screenshot Prevention**: Employs OS-level (Android `FLAG_SECURE`) and runtime (`expo-screen-capture`) protections to prevent screenshots and screen recordings. It also disables web text selection, image dragging, and context menus.
-- **Over-The-Air (OTA) Updates**: Configured with EAS Update to allow pushing updates instantly to users without going through app store reviews.
-- **Cross-Platform**: Built for both Android and iOS.
-
-## Project Structure
-
-- `App.js`: Main application entry point containing the WebView, Splash Screen logic, and security measures.
-- `app.json`: Expo configuration, including EAS linking and OTA settings.
-- `assets/`: Contains app icons and splash screen images.
-- `plugins/withScreenSecurity.js`: Custom Expo config plugin for Android OS-level screenshot prevention.
+- **WebView Integration**: Seamlessly loads [vesyllabus.fwh.is](https://vesyllabus.fwh.is).
+- **Custom Splash Screen**: Animated splash screen with the VE logo.
+- **Screenshot Prevention**: Security measures to prevent screenshots and screen recordings on both iOS and Android. Includes custom Android `FLAG_SECURE` configuration.
+- **OTA Updates**: Configured with EAS (Expo Application Services) for Over-The-Air updates.
+- **Hardware Navigation**: Supports Android hardware back button for WebView navigation.
+- **Content Protection**: Disables long-press context menus, text selection, and image dragging within the WebView.
 
 ## Development Setup
 
@@ -24,26 +18,28 @@ This is a React Native Expo application for VE Syllabus. It serves as a secure w
    npm install
    ```
 
-2. Start the development server:
+2. Start the Expo development server:
    ```bash
    npx expo start
    ```
 
-## Deployment and OTA Updates
+## Building the App
 
-This project is linked to Expo Application Services (EAS).
+This project uses EAS Build.
 
-**To publish an Over-The-Air (OTA) update:**
+To build an APK for Android testing:
+```bash
+eas build --platform android --profile preview
+```
+
+To build for production (Android App Bundle / iOS IPA):
+```bash
+eas build --platform all
+```
+
+## Publishing Updates
+
+To push an Over-The-Air (OTA) update to users without going through the app stores:
 ```bash
 eas update --branch production --message "Update description"
-```
-
-**To build the Android APK/AAB:**
-```bash
-eas build --platform android
-```
-
-**To build the iOS app:**
-```bash
-eas build --platform ios
 ```
